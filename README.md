@@ -1,2 +1,104 @@
-# VDIP
-Vehicle Demo Page
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"> <!-- Sets character encoding -->
+  <title>Welcome to Vehicle Demo page!</title> <!-- Title in browser tab -->
+
+  <style>
+    /* Reset browser defaults */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Make body take full screen with default font */
+    body, html {
+      height: 100%;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Fullscreen GIF background */
+    .background {
+      position: fixed; /* Fixes it in place */
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("https://inside-docupedia.bosch.com/confluence/download/attachments/6115088119/9b391a53609697.593a45526150a.gif?version=1&modificationDate=1754631176000&api=v2.gif") no-repeat center center fixed; /* Your GIF path */
+      background-size: cover; /* Fill screen */
+      z-index: -1; /* Behind all content */
+    }
+
+    /* Top-center title */
+    .header {
+      position: absolute;
+      top: 40px;
+      width: 100%;
+      text-align: center;
+      color: white;
+      font-size: 3em; /*Size of title */ 
+      text-shadow: 2px 2px 4px #000;
+    }
+
+    /* Footer container */
+    .footer {
+      position: absolute;
+      bottom: 30px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 50px;
+    }
+
+    /* Shared button styling */
+    .nav-button {
+      padding: 15px 25px;
+      font-size: 1.2em;
+      background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+      color: white;
+      text-decoration: none; /* Remove underline */
+      border: 2px solid white;
+      border-radius: 8px;
+      text-shadow: 1px 1px 3px #000;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    /* Center button placed manually */
+    .center {
+      position: absolute;
+      left: 45%;
+      transform: translateX(-1%);
+    }
+
+    /* Hover effect for buttons */
+    .nav-button:hover {
+      background-color: rgba(255, 255, 255, 0.4);
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background GIF -->
+  <div class="background"></div>
+
+  <!-- Title at top center -->
+  <div class="header">
+    Welcome to Vehicle Demo page!
+  </div>
+
+  <!-- Navigation buttons at the bottom -->
+  <div class="footer">
+    <!-- Bottom-left: Booking -->
+    <a href="https://inside-docupedia.bosch.com/confluence/display/FCW/G-Line" target="_blank" class="nav-button">Vehicle Booking</a>
+
+    <!-- Bottom-center: Working -->
+    <a href="https://www.google.com/" class="nav-button center">Vehicle Working</a>
+
+    <!-- Bottom-right: Setup -->
+    <a href="https://www.google.com/" class="nav-button">Vehicle Setup</a>
+  </div>
+
+</body>
+</html>
