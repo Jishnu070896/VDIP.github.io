@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Full Background with Buttons</title>
+<style>
+    /* Set background image to cover the full page */
+    body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        background-image: url("https://www.shutterstock.com/image-photo/car-service-checking-concept-hand-600nw-2465864641.jpg"); /* Change to your image URL */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: Arial, sans-serif;
+    }
+
+    /* Container for buttons */
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    /* Button styles */
+    ul li {
+        margin: 10px 0;
+    }
+
+    ul li button {
+        padding: 15px 30px;
+        font-size: 18px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        background: rgba(255, 255, 255, 0.8);
+        transition: all 0.3s ease;
+    }
+
+    /* Hover effect */
+    ul li button:hover {
+        background: rgba(0, 123, 255, 0.8);
+        color: white;
+        transform: scale(1.05);
+    }
+</style>
+</head>
+<body>
+
+    <ul>
+        <li><button>First</button></li>
+        <li><button>Second</button></li>
+        <li><button>Third</button></li>
+        <li><button>Fourth</button></li>
+        <li><button>Fifth</button></li>
+        <li><button>Sixth</button></li>
+    </ul>
+
+</body>
+</html>
