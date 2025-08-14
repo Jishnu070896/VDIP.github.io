@@ -3,63 +3,261 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Full Background with Buttons</title>
+<title>Full Background with Side Dropdown + Draggable & Animated Popups</title>
 <style>
-    /* Set background image to cover the full page */
     body {
         margin: 0;
         padding: 0;
         height: 100vh;
-        background-image: url("https://www.shutterstock.com/image-photo/car-service-checking-concept-hand-600nw-2465864641.jpg"); /* Change to your image URL */
+        background-image: url("https://www.shutterstock.com/image-photo/car-service-checking-concept-hand-600nw-2465864641.jpg");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
         display: flex;
         justify-content: left;
-        align-items: left;
+        align-items: flex-start;
         font-family: Arial, sans-serif;
     }
 
-    /* Container for buttons */
     ul {
         list-style: none;
         padding: 20px;
         margin: 0;
     }
 
-    /* Button styles */
     ul li {
         margin: 10px 0;
+        position: relative;
     }
 
-    ul li button {
+    ul li > div.title {
+        width: 300px;
         padding: 15px 30px;
         font-size: 18px;
-        border: none;
         border-radius: 8px;
-        cursor: pointer;
         background: rgba(255, 255, 255, 0.8);
+        color: black;
+        cursor: pointer;
         transition: all 0.3s ease;
     }
 
-    /* Hover effect */
-    ul li button:hover {
+    ul li > div.title:hover {
         background: rgba(0, 123, 255, 0.8);
         color: white;
         transform: scale(1.05);
+    }
+
+    .dropdown {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 100%;
+        width: 300px;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        padding: 5px 0;
+        z-index: 1;
+    }
+
+    .dropdown a {
+        display: block;
+        padding: 10px 20px;
+        color: black;
+        text-decoration: none;
+        font-size: 16px;
+        transition: background 0.2s;
+        cursor: pointer;
+    }
+
+    .dropdown a:hover {
+        background: rgba(0, 123, 255, 0.2);
+    }
+
+    ul li:hover .dropdown {
+        display: block;
+    }
+
+    /* Modal Overlay */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.6);
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    .modal.show {
+        display: flex;
+        opacity: 1;
+    }
+
+    /* Modal Box */
+    .modal-content {
+        background: white;
+        padding: 40px;
+        border-radius: 12px;
+        max-width: 800px;
+        width: 90%;
+        text-align: center;
+        position: absolute;
+        overflow-y: auto;
+        max-height: 80vh;
+        cursor: move;
+        transform: translate(-50%, -60%);
+        opacity: 0;
+        transition: all 0.3s ease;
+    }
+    .modal.show .modal-content {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+
+    /* Close Button */
+    .close-btn {
+        position: absolute;
+        right: 15px;
+        top: 10px;
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    /* Large Text */
+    .modal-text {
+        font-size: 22px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        white-space: pre-wrap;
+        text-align: left;
+    }
+
+    /* Details Button */
+    .details-btn {
+        margin-top: 15px;
+        padding: 14px 30px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-size: 18px;
+        cursor: pointer;
+    }
+    .details-btn:hover {
+        background-color: #0056b3;
     }
 </style>
 </head>
 <body>
 
     <ul>
-       <li><button onclick="window.location.href='https://www.google.com'">Necessary Components</button></li>
-        <li><button onclick="window.location.href='https://www.google.com'">Component description and details</button></li>
-        <li><button onclick="window.location.href='https://www.google.com'">Connection of components</button></li>
-        <li><button onclick="window.location.href='https://www.google.com'">Precautions to be taken</button></li>
-        <li><button onclick="window.location.href='https://www.google.com'">Possible blockers</button></li>
-        <li><button onclick="window.location.href='https://www.google.com'">Blocker Fixes</button></li>
+        <li>
+            <div class="title">Necessary Components</div>
+            <div class="dropdown">
+                <a onclick="openModal(`ES5X2 : ETK Device is a specialized tool used for ECU debugging.\n\nIt allows developers to monitor and adjust real-time parameters.\nThis is essential for automotive embedded systems testing.`,`https://google.com`)">ES5X2 : ETK Device</a>
+                <a onclick="openModal(`CancaseXL : CAN interface device for vehicle diagnostics.\n\nIt helps capture, send, and interpret CAN bus data.\nSupports multiple protocols for different car models.`,`https://google.com`)">CancaseXL : CAN</a>
+            </div>
+        </li>
+        <li>
+            <div class="title">Connection of components</div>
+            <div class="dropdown">
+                <a onclick="openModal(`Option 1: Connect ES5X2 to CancaseXL using DB9 cable.\n\nProvides direct data flow between devices without additional tools.`,`https://google.com`)">Option 1</a>
+                <a onclick="openModal(`Option 2: Use BreakOutbox to monitor data flow.\n\nAllows engineers to tap into communication lines for testing.`,`https://google.com`)">Option 2</a>
+            </div>
+        </li>
+        <li>
+            <div class="title">Precautions to be taken</div>
+            <div class="dropdown">
+                <a onclick="openModal(`Tool A: Used for ECU flashing and diagnostics.\n\nSupports multiple automotive brands and versions.`,`https://google.com`)">Tool A</a>
+                <a onclick="openModal(`Tool B: Advanced CAN data analyzer.\n\nProvides graphical and statistical representations.`,`https://google.com`)">Tool B</a>
+            </div>
+        </li>
+        <li>
+            <div class="title">Possible blockers</div>
+            <div class="dropdown">
+                <a onclick="openModal(`Procedure 1: Verify CAN communication before ECU flashing.\n\nReduces risk of device bricking.`,`https://google.com`)">Procedure 1</a>
+                <a onclick="openModal(`Procedure 2: Run vehicle diagnostics after flashing.\n\nEnsures stability and compatibility.`,`https://google.com`)">Procedure 2</a>
+            </div>
+        </li>
+        <li>
+            <div class="title">Blocker Fixes</div>
+            <div class="dropdown">
+                <a onclick="openModal(`Guideline 1: Regular firmware updates.\n\nEnsures compatibility with latest vehicle models.`,`https://google.com`)">Guideline 1</a>
+                <a onclick="openModal(`Guideline 2: Keep all connectors clean and dust-free.\n\nPrevents signal interference.`,`https://google.com`)">Guideline 2</a>
+            </div>
+        </li>
     </ul>
+
+    <!-- Modal -->
+    <div id="popupModal" class="modal" onclick="closeModal(event)">
+        <div id="modalBox" class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <pre id="modalText" class="modal-text"></pre>
+            <button class="details-btn" id="detailsButton">Click for more details</button>
+        </div>
+    </div>
+
+<script>
+    let currentUrl = "";
+
+    function openModal(text, url) {
+        document.getElementById('modalText').innerText = text;
+        currentUrl = url;
+        let modal = document.getElementById('popupModal');
+        modal.style.display = 'flex';
+        setTimeout(() => modal.classList.add('show'), 10); // Trigger animation
+        centerModal();
+    }
+
+    function closeModal(event) {
+        let modal = document.getElementById('popupModal');
+        if (!event || event.target === modal || event.target.classList.contains("close-btn")) {
+            modal.classList.remove('show');
+            setTimeout(() => { modal.style.display = 'none'; }, 300); // Wait for fade out
+        }
+    }
+
+    document.getElementById('detailsButton').addEventListener('click', function() {
+        if (currentUrl) {
+            window.location.href = currentUrl;
+        }
+    });
+
+    function centerModal() {
+        let modal = document.getElementById("modalBox");
+        modal.style.left = "50%";
+        modal.style.top = "50%";
+    }
+
+    // Make modal draggable
+    (function() {
+        let modal = document.getElementById("modalBox");
+        let isDragging = false, offsetX = 0, offsetY = 0;
+
+        modal.addEventListener("mousedown", function(e) {
+            isDragging = true;
+            offsetX = e.clientX - modal.offsetLeft;
+            offsetY = e.clientY - modal.offsetTop;
+        });
+
+        document.addEventListener("mousemove", function(e) {
+            if (isDragging) {
+                modal.style.left = (e.clientX - offsetX) + "px";
+                modal.style.top = (e.clientY - offsetY) + "px";
+                modal.style.transform = "";
+            }
+        });
+
+        document.addEventListener("mouseup", function() {
+            isDragging = false;
+        });
+    })();
+</script>
 
 </body>
 </html>
