@@ -28,7 +28,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding-top: 2rem; /* Pushes content from top */
+      padding-top: 2rem;
       text-align: center;
     }
 
@@ -76,8 +76,10 @@
   <p>
     Welcome, Jeep Compass user! This page is specifically tailored for users interested in the technical aspects of your 2017 Model Year (MY17) Jeep Compass AWD, particularly concerning its BS4 (Bharat Stage 4) compliance and the methodologies for testing the Engine Control Module (ECM) software.
   </p>
-  <button onclick="Vehicle_Specs.html">Click here to Explore</button>
+  
+  <!-- Button that opens Vehicle_Specs.html in a new tab -->
+  <button onclick="window.open('Vehicle_Specs.html', '_blank')">
+    Click here to Explore
+  </button>
 </body>
 </html>
-
-
