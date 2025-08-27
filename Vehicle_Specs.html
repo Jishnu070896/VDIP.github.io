@@ -155,7 +155,7 @@
   <pre id="details-content">Select a section above to view details.</pre>
 
   <!-- Back Button -->
-  <button class="back-btn" onclick="window.location.href='index.html'">⬅ Back to Home</button>
+ <button class="back-btn" onclick="goToHome()">⬅ Back to Home</button>
 
   <script>
     const titles = [
@@ -246,6 +246,10 @@ BS6 has stricter PM and NOx thresholds.`
 
       // Set background image
       document.body.style.backgroundImage = bgImages[index - 1];
+    }
+	
+	 function goToHome() {
+      window.location.href = "Vehicle_details.html"; // Change this to any page you want
     }
   </script>
 </body>
