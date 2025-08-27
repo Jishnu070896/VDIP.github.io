@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jeep Compass Details</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      margin: 0;
+      padding: 2rem;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      color: #fff;
+      line-height: 1.6;
+      background-color: #000;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      transition: background-image 0.8s ease-in-out;
+      min-height: 100vh;
+      position: relative;
+      /* Default background image */
+      background-image: url('https://c.ndtvimg.com/2020-12/curpn8kg_2021-jeep-compass-teased_625x300_28_December_20.jpg');
+    }
+
+    /* Dark overlay for readability */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.55);
+      z-index: 0;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-size: 2rem;
+      color: #f5f5f5;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Buttons Container */
+    .buttons-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin-bottom: 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Buttons Style */
+    .buttons-container button {
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background-color: rgba(255, 255, 255, 0.15);
+      color: #fff;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+      transition: all 0.3s ease;
+      backdrop-filter: blur(6px);
+      z-index: 1;
+    }
+
+    /* Hover Effect */
+    .buttons-container button:hover {
+      background-color: rgba(255, 255, 255, 0.4);
+      transform: scale(1.05);
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+
+    /* Active Button Effect */
+    .buttons-container button.active {
+      background-color: #3a7bd5;
+      color: white;
+      transform: scale(1.08);
+      box-shadow: 0 0 15px rgba(58, 123, 213, 0.6);
+    }
+
+    /* Details Box */
+    #details-content {
+      background: rgba(0, 0, 0, 0.65);
+      padding: 1rem;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      box-shadow: 0 0 15px rgba(0,0,0,0.6);
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      display: none; /* Hidden initially */
+      animation: fadeIn 0.5s ease-in-out;
+      position: relative;
+      z-index: 1;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Floating Back Button */
+    .back-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 0.8rem 1.5rem;
+      background-color: #3a7bd5;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 12px rgba(0,0,0,0.4);
+      z-index: 999;
+    }
+
+    .back-btn:hover {
+      background-color: #0056b3;
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(0,0,0,0.6);
+    }
+  </style>
+</head>
+<body>
+  <h1 id="title">Jeep Compass Specifications</h1>
+
+  <!-- Buttons -->
+  <div class="buttons-container">
+    <button onclick="showDetails(1)">Engine Specifications</button>
+    <button onclick="showDetails(2)">Powertrain Components</button>
+    <button onclick="showDetails(3)">Chassis & Suspension</button>
+    <button onclick="showDetails(4)">Electrical Systems</button>
+    <button onclick="showDetails(5)">Interior & Exterior</button>
+    <button onclick="showDetails(6)">BS4 Distinctions</button>
+  </div>
+
+  <!-- Details Area -->
+  <pre id="details-content">Select a section above to view details.</pre>
+
+  <!-- Back Button -->
+  <button class="back-btn" onclick="window.location.href='index.html'">⬅ Back to Home</button>
+
+  <script>
+    const titles = [
+      "Engine Specifications",
+      "Powertrain Components",
+      "Chassis & Suspension Components",
+      "Electrical & Electronic Systems",
+      "Interior & Exterior Components",
+      "Key Distinction for BS4 in India"
+    ];
+
+    const buttonTexts = [
+      `SW Part Number - 10SW031647
+Model - 556AWD
+Engine family – FAMB
+Power [kW] - 170CV
+Emission norm - BS IV
+Immobilizer - active
+Transmission - MT
+Displacement - 2.0
+Market - India
+Model year - 2017
+Cylinders - 4
+SW Version - G11B
+PVER - P1619FIATDS_G/G11B;0
+Calibration File - M6Y4AHG11BBFM_HPT.hex
+Hardware part number - 0281033582`,
+
+      `2.0L MultiJet II Diesel Engine (170 hp, 350 Nm)
+Fuel System: BS4 compliant, 50 ppm sulfur.
+Air Intake System: Standard air filter, manifold, throttle.
+Exhaust System: Diesel Oxidation Catalyst (DOC), DPF (not mandatory for BS4), EGR system.
+Oxygen Sensors, ECU calibrations, TCU integration.
+1.4L MultiAir Petrol: TWC Catalytic Converter, O2 Sensors.
+Transmission: 9-speed Auto (AWD), 6-speed Manual (2WD).
+Jeep Active Drive AWD System: PTU, RDM, Propeller Shaft.`,
+
+      `Frame/Unibody: High-strength steel.
+Suspension: MacPherson Strut (front), Multi-link (rear).
+Brakes: Disc brakes, ABS, EBD, ESC, EPB.
+Steering: Electric Power Steering.
+Wheels & Tires: Alloy wheels, TPMS included.`,
+
+      `Battery, Alternator, Starter.
+BCM (Body Control Module).
+Infotainment: Uconnect system, 7" or 8.4" display.
+Sensors: O2, MAP, MAF, Crank/Cam, etc.
+Lighting: Halogen, LED DRLs, LED tail lamps.
+Safety: Airbags, Hill Start Assist, ERM, TPMS.`,
+
+      `Body Panels, Glass, Wipers, Mirrors.
+Seating: Fabric or Leather.
+Dashboard & Instrument Cluster: Analog + MID.
+Climate Control: Manual/Automatic.
+Roof Rails, Grille, Badging.`,
+
+      `BS4 vs BS6:
+BS4 relies on EGR + DOC for NOx and PM control.
+BS6 mandates DPF + SCR with AdBlue injection.
+BS6 has stricter PM and NOx thresholds.`
+    ];
+
+    // Background images for each button
+    const bgImages = [
+      "url('https://wallpaper.forfun.com/fetch/17/1741e09a0b92b2a68258c73dd7264b3a.jpeg')",    // Engine
+      "url('https://www.autoblog.com/.image/w_3840,q_auto:good,c_limit/MjA5MDg4OTQwMDgyMjEwNjYw/koenigsegg_gemera_031.jpg')", // Powertrain
+      "url('https://as2.ftcdn.net/jpg/03/20/81/37/1000_F_320813729_mi3HTx5pE2o0QXO1eUJIYExRx5bbEb8r.jpg')",   // Chassis
+      "url('https://media.licdn.com/dms/image/v2/D5612AQHHK7M5HAw3Gg/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1712886417278?e=2147483647&v=beta&t=vIhEdgic2Fn5q1eBPwo0y6uTv50WERYG4Tf8V5wURe0')", // Electrical
+      "url('https://images.hindustantimes.com/auto/img/2022/04/18/original/Jeep_Compass_1650293164022.png')",   // Interior
+      "url('https://img.carchhe.com/carchhe/blogs_images/LYJaAO4FnwZiiLhzCbUyp7fYMaCzy0VytiZBwgnX.webp')"        // BS4 Distinctions
+    ];
+
+    function showDetails(index) {
+      // Set title
+      document.getElementById("title").textContent = titles[index - 1];
+
+      // Show content box & update text
+      const detailsBox = document.getElementById("details-content");
+      detailsBox.style.display = "block";
+      detailsBox.textContent = buttonTexts[index - 1];
+
+      // Remove active class from all buttons
+      const buttons = document.querySelectorAll(".buttons-container button");
+      buttons.forEach(btn => btn.classList.remove("active"));
+
+      // Set clicked button as active
+      buttons[index - 1].classList.add("active");
+
+      // Set background image
+      document.body.style.backgroundImage = bgImages[index - 1];
+    }
+  </script>
+</body>
+</html>
