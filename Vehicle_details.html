@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Technical details and specifications of the 2017 Jeep Compass BS4 model." />
   <title>Jeep Compass Info Page</title>
   <style>
     * {
@@ -16,7 +17,6 @@
     }
 
     body {
-      margin: 0;
       min-height: 100vh;
       background-image: url('https://www.jeep-india.com/content/dam/cross-regional/apac/jeep/en_in/allnewjeepcompass7thjan/countdowndsktop-final2.jpg.img.1440.jpg');
       background-size: cover;
@@ -28,8 +28,13 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding-top: 2rem;
+      justify-content: flex-start;
+      padding: 2rem;
       text-align: center;
+    }
+
+    main {
+      max-width: 800px;
     }
 
     h1 {
@@ -40,26 +45,46 @@
 
     p {
       font-size: 1.2rem;
-      max-width: 700px;
       line-height: 1.6;
       text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
       margin-bottom: 2rem;
     }
 
-    button {
+    a.button {
+      display: inline-block;
       padding: 0.8rem 1.5rem;
       font-size: 1.2rem;
       font-weight: 600;
-      border: none;
       border-radius: 8px;
-      cursor: pointer;
       background-color: rgba(255, 255, 255, 0.2);
       color: #fff;
+      text-decoration: none;
       text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
       transition: all 0.3s ease;
     }
 
-    button:hover {
+    a.button:hover {
+      background-color: rgba(255, 255, 255, 0.5);
+      transform: scale(1.05);
+    }
+
+    /* Back to Home Button (fixed position) */
+    a.back-home {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 0.7rem 1.3rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 8px;
+      background-color: rgba(255, 255, 255, 0.2);
+      color: #fff;
+      text-decoration: none;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+      transition: all 0.3s ease;
+    }
+
+    a.back-home:hover {
       background-color: rgba(255, 255, 255, 0.5);
       transform: scale(1.05);
     }
@@ -67,19 +92,22 @@
     @media (max-width: 768px) {
       h1 { font-size: 2rem; }
       p { font-size: 1rem; padding: 0 1rem; }
-      button { font-size: 1rem; padding: 0.6rem 1rem; }
+      a.button { font-size: 1rem; padding: 0.6rem 1rem; }
+      a.back-home { font-size: 0.9rem; padding: 0.6rem 1rem; }
     }
   </style>
 </head>
 <body>
-  <h1>Jeep Compass - Your BS4 Adventure Companion</h1>
-  <p>
-    Welcome, Jeep Compass user! This page is specifically tailored for users interested in the technical aspects of your 2017 Model Year (MY17) Jeep Compass AWD, particularly concerning its BS4 (Bharat Stage 4) compliance and the methodologies for testing the Engine Control Module (ECM) software.
-  </p>
-  
-  <!-- Button that opens Vehicle_Specs.html in a new tab -->
-  <button onclick="window.open('Vehicle_Specs.html', '_blank')">
-    Click here to Explore
-  </button>
+  <main>
+    <h1>Jeep Compass - Your BS4 Adventure Companion</h1>
+    <p>
+      Welcome, Jeep Compass user! This page is specifically tailored for users interested in the technical aspects of your 2017 Model Year (MY17) Jeep Compass AWD, particularly concerning its BS4 (Bharat Stage 4) compliance and the methodologies for testing the Engine Control Module (ECM) software.
+    </p>
+    <!-- Styled anchor tag as button -->
+    <a href="Vehicle_Specs.html" class="button">Click here to Explore</a>
+  </main>
+
+  <!-- Back to Home Page Button -->
+  <a href="index.html" class="back-home">Back to Home Page</a>
 </body>
 </html>
