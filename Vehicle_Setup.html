@@ -151,6 +151,28 @@
     .details-btn:hover {
         background-color: #0056b3;
     }
+
+    /* Back to Home Button */
+    a.back-home {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        padding: 0.7rem 1.3rem;
+        font-size: 1rem;
+        font-weight: 600;
+        border-radius: 8px;
+        background-color: rgba(255, 255, 255, 0.2);
+        color: #fff;
+        text-decoration: none;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+        transition: all 0.3s ease;
+        z-index: 1100; /* stay above modal */
+    }
+
+    a.back-home:hover {
+        background-color: rgba(255, 255, 255, 0.5);
+        transform: scale(1.05);
+    }
 </style>
 </head>
 <body>
@@ -201,6 +223,9 @@
             <button class="details-btn" id="detailsButton">Click for more details</button>
         </div>
     </div>
+
+    <!-- Back to Home Page Button -->
+    <a href="index.html" class="back-home">Back to Home Page</a>
 
 <script>
     let currentUrl = "";
