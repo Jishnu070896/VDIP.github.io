@@ -9,7 +9,7 @@
         margin: 0;
         padding: 0;
         height: 100vh;
-        background-image: url("aaa.jpg");
+        background-image: url("setup.png");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -179,38 +179,41 @@
 
     <ul>
         <li>
-            <div class="title">Necessary Components</div>
+            <div class="title">Necessary HW Components</div>
             <div class="dropdown">
-                <a onclick="openModal(`ES5X2 : ETK Device is a specialized tool used for ECU debugging.\n\nIt allows developers to monitor and adjust real-time parameters.\nThis is essential for automotive embedded systems testing.`,`https://google.com`)">ES5X2 : ETK Device</a>
-                <a onclick="openModal(`CancaseXL : CAN interface device for vehicle diagnostics.\n\nIt helps capture, send, and interpret CAN bus data.\nSupports multiple protocols for different car models.`,`https://google.com`)">CancaseXL : CAN</a>
+                <a onclick="openModal(`ES5X2 : ETK Device is a specialized tool used for ECU debugging.\n\nIt allows developers to monitor and adjust real-time parameters.\nThis is essential for automotive embedded systems testing.`,`https://inside-docupedia.bosch.com/confluence/display/FCW/MEDC17_DS_Vehicle#MEDC17_DS_Vehicle-ES592ETKdevice`)">ES5X2 : ETK Device</a>
+                <a onclick="openModal(`CancaseXL : CANcase is a comprehensive analysis, diagnostics, and monitoring software tool from Vector Informatik GmbH. \n\nPrimarily used in the automotive and industrial sectors for analyzing data traffic on network systems like CAN, LIN, Ethernet, and FlexRay..`,`https://inside-docupedia.bosch.com/confluence/display/FCW/MEDC17_DS_Vehicle#MEDC17_DS_Vehicle-CANCase`)">CancaseXL : CAN</a>
+                <a onclick="openModal(`Junction Box : serves as a centralized hub for distributing electrical power to various testing components.\n\nAllows you to connect one main power source and distribute it to multiple devices like canalyzer , ETK device.`,`https://inside-docupedia.bosch.com/confluence/display/FCW/MEDC17_DS_Vehicle#MEDC17_DS_Vehicle-JunctionBox&Cables`)">Junction Box</a>
+           </div>
+        </li>
+        <li>
+            <div class="title">Necessary SW applications</div>
+            <div class="dropdown">
+                <a onclick="openModal(`INCA : For data acquisition, capturing information from ECUs and vehicle buses such as CAN, LIN. It measures signals from sensors and the vehicle environment, allowing engineers to calculate and display derived quantities in real time.`,`https://inside-docupedia.bosch.com/confluence/display/FCW/MEDC17_DS_Vehicle#MEDC17_DS_Vehicle-INCASetup`)">INCA</a>
+                <a onclick="openModal(`Candiagnostics : It is a Bosch Internal tool for diagnostic tester communication via CAN . Helps in reading or writing data.`,`https://inside-docupedia.bosch.com/confluence/display/FCW/MEDC17_DS_Vehicle#MEDC17_DS_Vehicle-CANDiagnosticsTool`)">Candiagnostics</a>
+                <a onclick="openModal(`Canalyzer : CANalyzer is a program from Vector Informatik GmbH for the recording and manipulation of communication on the CAN or LIN bus. \n\nCANalyzer includes the CANdb editor and the CAPL browser for creating your own CAN databases and CAPL programs`,`https://inside-docupedia.bosch.com/confluence/display/FCW/MEDC17_DS_Vehicle#MEDC17_DS_Vehicle-Canalyzer`)">Canalyzer</a>
             </div>
         </li>
         <li>
             <div class="title">Connection of components</div>
             <div class="dropdown">
-                <a onclick="openModal(`Option 1: Connect ES5X2 to CancaseXL using DB9 cable.\n\nProvides direct data flow between devices without additional tools.`,`https://google.com`)">Option 1</a>
-                <a onclick="openModal(`Option 2: Use BreakOutbox to monitor data flow.\n\nAllows engineers to tap into communication lines for testing.`,`https://google.com`)">Option 2</a>
+                <a onclick="openModal(`Junction Box : Connect the battery terminals to junction box (Red to 12V and Black to GND).`,`https://inside-docupedia.bosch.com/confluence/display/FCW/MEDC17_DS_Vehicle#MEDC17_DS_Vehicle-Componentsconnection`)">Junction Box</a>
+                <a onclick="openModal(`ES5X2 : Connect ES device to Junction Box, Host Laptop, OBD Port and ECU `,`https://inside-docupedia.bosch.com/confluence/display/FCW/MEDC17_DS_Vehicle#MEDC17_DS_Vehicle-Componentsconnection`)">ES5X2</a>
+                <a onclick="openModal(`CancaseXL : Connect device to Host Laptop and OBD Port.`,`https://inside-docupedia.bosch.com/confluence/display/FCW/MEDC17_DS_Vehicle#MEDC17_DS_Vehicle-Componentsconnection`)">CancaseXL</a>
+                <a onclick="openModal(`OBD Port : CAN1 High and CAN1 Low to be connected to CancaseXL `,`https://inside-docupedia.bosch.com/confluence/display/FCW/MEDC17_DS_Vehicle#MEDC17_DS_Vehicle-Componentsconnection`)">OBD Port</a>
             </div>
         </li>
         <li>
             <div class="title">Precautions to be taken</div>
             <div class="dropdown">
-                <a onclick="openModal(`Tool A: Used for ECU flashing and diagnostics.\n\nSupports multiple automotive brands and versions.`,`https://google.com`)">Tool A</a>
-                <a onclick="openModal(`Tool B: Advanced CAN data analyzer.\n\nProvides graphical and statistical representations.`,`https://google.com`)">Tool B</a>
+                <a onclick="openModal(`- Ensure you have all the necessary prerequisites before going to vehicle\n\n -Ensure you are connecting to right CAN pins of OBD port \n\n - Precheck the canalyzer and ETK device are working fine, check for loose connections. \n\n - Make sure the vehicle battery is sufficiently charged.\n\n - Please ensure not to keep the T15 On without running the engine.`,`https://inside-docupedia.bosch.com/confluence/display/FCW/MEDC17_DS_Vehicle#MEDC17_DS_Vehicle-Hardwareandconnectionchecks`)">Hardware and connection checks</a>
+                <a onclick="openModal(`- Ensure there is appropriate Ethernet connection in PC.\n\n - Make sure to flash the right SW  in ECU and choose right CAN channel for communication.\n\n - Avoid sending write commands unless you're sure of the impact.`,`https://inside-docupedia.bosch.com/confluence/display/FCW/MEDC17_DS_Vehicle#MEDC17_DS_Vehicle-Softwareconfiguration`)">Software configuration</a>
             </div>
         </li>
         <li>
-            <div class="title">Possible blockers</div>
+            <div class="title">Possible blockers and resolutions</div>
             <div class="dropdown">
-                <a onclick="openModal(`Procedure 1: Verify CAN communication before ECU flashing.\n\nReduces risk of device bricking.`,`https://google.com`)">Procedure 1</a>
-                <a onclick="openModal(`Procedure 2: Run vehicle diagnostics after flashing.\n\nEnsures stability and compatibility.`,`https://google.com`)">Procedure 2</a>
-            </div>
-        </li>
-        <li>
-            <div class="title">Blocker Fixes</div>
-            <div class="dropdown">
-                <a onclick="openModal(`Guideline 1: Regular firmware updates.\n\nEnsures compatibility with latest vehicle models.`,`https://google.com`)">Guideline 1</a>
-                <a onclick="openModal(`Guideline 2: Keep all connectors clean and dust-free.\n\nPrevents signal interference.`,`https://google.com`)">Guideline 2</a>
+                <a onclick="openModal(`ES5X2 device not powered up – this can be checked by LED light ON blinking.\n\n - Check if there is any loose connection from junction box to ES device , you can try reconnecting the cable.\n\n - Check if the Ethernet cable connected from ES device to Host PC is blinking, this ensures successful connection.\n\n - IP configuration has to be done correctly.`,`https://inside-docupedia.bosch.com/confluence/display/FCW/MEDC17_DS_Vehicle#MEDC17_DS_Vehicle-Possibleissuesandsolutions`)">Blocker 1</a>
             </div>
         </li>
     </ul>
@@ -247,9 +250,10 @@
         }
     }
 
+    // Open link in a new tab
     document.getElementById('detailsButton').addEventListener('click', function() {
         if (currentUrl) {
-            window.location.href = currentUrl;
+            window.open(currentUrl, '_blank', 'noopener,noreferrer');
         }
     });
 
@@ -286,4 +290,3 @@
 
 </body>
 </html>
-
