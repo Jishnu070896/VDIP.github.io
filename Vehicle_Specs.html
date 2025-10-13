@@ -1,173 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Jeep Compass Details</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      margin: 0;
-      padding: 2rem;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      color: #fff;
-      line-height: 1.6;
-      background-color: #000;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      transition: background-image 0.8s ease-in-out;
-      min-height: 100vh;
-      position: relative;
-      /* Default background image */
-      background-image: url('spec.jpg');
-    }
-
-    /* Dark overlay for readability */
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.55);
-      z-index: 0;
-    }
-
-    h1 {
-      text-align: center;
-      margin-bottom: 1.5rem;
-      font-size: 2rem;
-      color: #f5f5f5;
-      text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
-      position: relative;
-      z-index: 1;
-    }
-
-    /* Buttons Container */
-    .buttons-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: center;
-      margin-bottom: 2rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    /* Buttons Style */
-    .buttons-container button {
-      padding: 0.8rem 1.5rem;
-      font-size: 1rem;
-      font-weight: 600;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      background-color: rgba(255, 255, 255, 0.15);
-      color: #fff;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
-      transition: all 0.3s ease;
-      backdrop-filter: blur(6px);
-      z-index: 1;
-    }
-
-    /* Hover Effect */
-    .buttons-container button:hover {
-      background-color: rgba(255, 255, 255, 0.4);
-      transform: scale(1.05);
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-    }
-
-    /* Active Button Effect */
-    .buttons-container button.active {
-      background-color: #3a7bd5;
-      color: white;
-      transform: scale(1.08);
-      box-shadow: 0 0 15px rgba(58, 123, 213, 0.6);
-    }
-
-    /* Details Box */
-    #details-content {
-      background: rgba(0, 0, 0, 0.65);
-      padding: 1rem;
-      border-radius: 8px;
-      font-size: 1.1rem;
-      line-height: 1.6;
-      box-shadow: 0 0 15px rgba(0,0,0,0.6);
-      white-space: pre-wrap;
-      word-wrap: break-word;
-      display: none; /* Hidden initially */
-      animation: fadeIn 0.5s ease-in-out;
-      position: relative;
-      z-index: 1;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Floating Back Button */
-    .back-btn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      padding: 0.8rem 1.5rem;
-      background-color: #3a7bd5;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 1.1rem;
-      transition: all 0.3s ease;
-      box-shadow: 0 0 12px rgba(0,0,0,0.4);
-      z-index: 999;
-    }
-
-    .back-btn:hover {
-      background-color: #0056b3;
-      transform: scale(1.05);
-      box-shadow: 0 0 15px rgba(0,0,0,0.6);
-    }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Jeep Compass Details</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { margin: 0; padding: 2rem; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; color: #fff; line-height: 1.6; background-color: #000; background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: fixed; transition: background-image 0.8s ease-in-out; min-height: 100vh; position: relative; background-image: url('spec.jpg'); }
+body::before { content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.55); z-index: 0; }
+h1 { text-align: center; margin-bottom: 1.5rem; font-size: 2rem; color: #f5f5f5; text-shadow: 1px 1px 4px rgba(0,0,0,0.7); position: relative; z-index: 1; }
+.buttons-container { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-bottom: 2rem; position: relative; z-index: 1; }
+.buttons-container button, .sub-buttons button, .small-back, .know-more { padding: 0.8rem 1.5rem; font-size: 1rem; font-weight: 600; border: none; border-radius: 8px; cursor: pointer; background-color: rgba(255,255,255,0.15); color: #fff; text-shadow: 1px 1px 3px rgba(0,0,0,0.6); transition: all 0.3s ease; backdrop-filter: blur(6px); z-index: 1; }
+.buttons-container button:hover, .sub-buttons button:hover, .small-back:hover, .know-more:hover { background-color: rgba(255,255,255,0.4); transform: scale(1.05); box-shadow: 0 0 10px rgba(255,255,255,0.3);}
+.buttons-container button.active { background-color: #3a7bd5; color: white; transform: scale(1.08); box-shadow: 0 0 15px rgba(58,123,213,0.6);}
+#details-content { background: rgba(0,0,0,0.65); padding: 1rem; border-radius: 8px; font-size: 1.1rem; line-height: 1.6; box-shadow: 0 0 15px rgba(0,0,0,0.6); white-space: pre-wrap; word-wrap: break-word; display: none; animation: fadeIn 0.5s ease-in-out; position: relative; z-index: 1; text-align: center; }
+@keyframes fadeIn { from {opacity:0; transform:translateY(10px);} to {opacity:1; transform:translateY(0);} }
+.sub-buttons { display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; margin-top: 1.5rem; }
+.back-btn { position: fixed; bottom: 20px; right: 20px; padding: 0.8rem 1.5rem; background-color: #3a7bd5; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 1.1rem; transition: all 0.3s ease; box-shadow: 0 0 12px rgba(0,0,0,0.4); z-index: 999; }
+.small-back { margin-top: 1.5rem; padding: 0.6rem 1.2rem; background-color: #3a7bd5; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 0.95rem; transition: all 0.3s ease;}
+.know-more { margin-top: 1rem; background-color:#00bfa5; color:#fff; border-radius:6px;}
+</style>
 </head>
 <body>
-  <h1 id="title">Jeep Compass Specifications</h1>
 
-  <!-- Buttons -->
-  <div class="buttons-container">
-    <button onclick="showDetails(1)">Engine Specifications</button>
-    <button onclick="showDetails(2)">Powertrain Components</button>
-    <button onclick="showDetails(3)">Chassis & Suspension</button>
-    <button onclick="showDetails(4)">Electrical Systems</button>
-    <button onclick="showDetails(5)">Interior & Exterior</button>
-    <button onclick="showDetails(6)">BS4 Distinctions</button>
-  </div>
+<h1 id="title">Jeep Compass Specifications</h1>
 
-  <!-- Details Area -->
-  <pre id="details-content">Select a section above to view details.</pre>
+<div class="buttons-container">
+  <button onclick="showDetails(1)">Engine Specifications</button>
+  <button onclick="showDetails(2)">Powertrain Components</button>
+  <button onclick="showDetails(3)">Chassis & Suspension</button>
+  <button onclick="showDetails(4)">Electrical Systems</button>
+  <button onclick="showDetails(5)">Interior & Exterior</button>
+  <button onclick="showDetails(6)">BS4 Distinctions</button>
+  <button onclick="showDetails(7)">Engine Systems</button>
+</div>
 
-  <!-- Back Button -->
- <button class="back-btn" onclick="goToHome()">⬅ Back to Home</button>
+<div id="details-content">Select a section above to view details.</div>
 
-  <script>
-    const titles = [
-      "Engine Specifications",
-      "Powertrain Components",
-      "Chassis & Suspension Components",
-      "Electrical & Electronic Systems",
-      "Interior & Exterior Components",
-      "Key Distinction for BS4 in India"
-    ];
+<button class="back-btn" onclick="goToHome()">⬅ Back to Home</button>
 
-    const buttonTexts = [
+<script>
+let currentSubsystem = ''; // Track current subsystem for back navigation
+
+const titles = ["Engine Specifications","Powertrain Components","Chassis & Suspension Components","Electrical & Electronic Systems","Interior & Exterior Components","Key Distinction for BS4 in India","Engine Systems"];
+const buttonTexts = [
       `SW Part Number - 10SW031647
 Model - 556AWD
 Engine family – FAMB
@@ -215,44 +91,87 @@ Roof Rails, Grille, Badging.`,
       `BS4 vs BS6:
 BS4 relies on EGR + DOC for NOx and PM control.
 BS6 mandates DPF + SCR with AdBlue injection.
-BS6 has stricter PM and NOx thresholds.`
+BS6 has stricter PM and NOx thresholds.`,
+
+`Select any of the below systems.`
     ];
+const bgImages = ["url('engine.jpeg')","url('trans.jpg')","url('chassis.jpg')","url('parts.jpg')","url('inter.jpg')","url('bstage.jpg')","url('engsys.jpg')"];
 
-    // Background images for each button
-    const bgImages = [
-      "url('engine.jpeg')",    // Engine
-      "url('trans.jpg')", // Powertrain
-      "url('chassis.jpg')",   // Chassis
-      "url('parts.jpg')", // Electrical
-      "url('inter.jpg')",   // Interior
-      "url('bstage.jpg')"        // BS4 Distinctions
-    ];
+function showDetails(index){
+  const title = document.getElementById("title");
+  const detailsBox = document.getElementById("details-content");
+  const buttons = document.querySelectorAll(".buttons-container button");
+  title.textContent = titles[index-1];
+  detailsBox.style.display = "block";
+  document.body.style.backgroundImage = bgImages[index-1];
+  buttons.forEach(btn => btn.classList.remove("active"));
+  buttons[index-1].classList.add("active");
+  if(index===7){ showEngineSystems(); } else { detailsBox.textContent = buttonTexts[index-1]; }
+}
 
-    function showDetails(index) {
-      // Set title
-      document.getElementById("title").textContent = titles[index - 1];
+// Engine Systems main menu
+function showEngineSystems(){
+  const detailsBox = document.getElementById("details-content");
+  detailsBox.innerHTML = `
+    <p>${buttonTexts[6]}</p>
+    <div class="sub-buttons">
+      <button onclick="showComponents('Air')">Air System</button>
+      <button onclick="showComponents('Fuel')">Fuel System</button>
+      <button onclick="showComponents('Exhaust')">Exhaust System</button>
+    </div>
+  `;
+}
 
-      // Show content box & update text
-      const detailsBox = document.getElementById("details-content");
-      detailsBox.style.display = "block";
-      detailsBox.textContent = buttonTexts[index - 1];
+// Show subsystem components
+function showComponents(sub){
+  currentSubsystem = sub; // Save current subsystem for back navigation
+  const detailsBox = document.getElementById("details-content");
+  let components = [];
+  if(sub==='Air') components = [
+    {name:'HFM', desc:'Measures the amount of air entering the engine for accurate fuel injection.',link:'https://inside-docupedia.bosch.com/confluence/display/FCW/MEDC17_DS_Vehicle#MEDC17_DS_Vehicle-MassAirFlow(MAF)Sensor/AirFlowSensor'},
+    {name:'Air Filter', desc:'Removes dust, dirt, and debris from the incoming air to prevent engine damage.', link:'https://inside-docupedia.bosch.com/confluence/display/FCW/MEDC17_DS_Vehicle#MEDC17_DS_Vehicle-AirFilter'},
+	{name:'Throttle Control', desc:'Controls the amount of air entering the intake manifold based on driver input.', link:'https://inside-docupedia.bosch.com/confluence/display/FCW/MEDC17_DS_Vehicle#MEDC17_DS_Vehicle-ThrottleControl'},
+	{name:'Turbo Charger', desc:'Compresses air to increase density, improving engine power and efficiency.', link:'https://inside-docupedia.bosch.com/confluence/display/FCW/MEDC17_DS_Vehicle#MEDC17_DS_Vehicle-TurboCharger'},
+	{name:'Intercooler', desc:'Cools compressed air from the turbocharger to increase oxygen density and prevent engine knock.',link:'https://inside-docupedia.bosch.com/confluence/display/FCW/MEDC17_DS_Vehicle#MEDC17_DS_Vehicle-Intercooler'},
+	{name:'System Sensors', desc:'Sensors like Intake Air Temperature (IAT) sensor monitor air conditions.', link:'https://inside-docupedia.bosch.com/confluence/display/FCW/MEDC17_DS_Vehicle#MEDC17_DS_Vehicle-AirSystemSensors'},
+	{name:'PCV', desc:'Recirculates crankcase gases into the intake to reduce emissions.', link:'https://inside-docupedia.bosch.com/confluence/display/FCW/MEDC17_DS_Vehicle#MEDC17_DS_Vehicle-PositiveCrankcaseVentilation'},
+    {name:'EGR', desc:'System designed to reduce harmful nitrogen oxide (NOx) emissions by recirculating a small portion of exhaust gas back into the engine combustion chamber.', link:'https://inside-docupedia.bosch.com/confluence/display/FCW/MEDC17_DS_Vehicle#MEDC17_DS_Vehicle-EGR:ExhaustGasRecirculation'}
+  ];
+  else if(sub==='Fuel') components = [
+    {name:'Fuel Pump', desc:'Supplies fuel from tank to engine.', link:'fuel_pump_detail.html'},
+    {name:'Injectors', desc:'Atomize fuel for combustion.', link:'fuel_injectors_detail.html'},
+    {name:'Fuel Rail', desc:'Distributes fuel to injectors.', link:'fuel_rail_detail.html'}
+  ];
+  else if(sub==='Exhaust') components = [
+    {name:'DOC', desc:'Diesel Oxidation Catalyst reduces pollutants.', link:'exhaust_doc_detail.html'},
+    {name:'DPF', desc:'Diesel Particulate Filter traps soot.', link:'exhaust_dpf_detail.html'},
+    {name:'Tailpipe', desc:'Exhaust outlet for emissions.', link:'exhaust_tailpipe_detail.html'}
+  ];
 
-      // Remove active class from all buttons
-      const buttons = document.querySelectorAll(".buttons-container button");
-      buttons.forEach(btn => btn.classList.remove("active"));
+  let html = `<h3>${sub} System Components</h3><div class="sub-buttons">`;
+  components.forEach(c=>{
+    html += `<button onclick="showComponentDetail('${c.name}','${c.desc}','${c.link}')">${c.name}</button>`;
+  });
+  html += `</div><button class="small-back" onclick="showEngineSystems()">⬅ Back</button>`;
+  detailsBox.innerHTML = html;
+}
 
-      // Set clicked button as active
-      buttons[index - 1].classList.add("active");
+// Show component description + "Click to know more"
+function showComponentDetail(name, desc, link){
+  const detailsBox = document.getElementById("details-content");
+  detailsBox.innerHTML = `
+    <h3>${name}</h3>
+    <p>${desc}</p>
+    <button class="know-more" onclick="openLink('${link}')">Click to know more</button>
+    <br>
+    <button class="small-back" onclick="showComponents(currentSubsystem)">⬅ Back </button>
+  `;
+}
 
-      // Set background image
-      document.body.style.backgroundImage = bgImages[index - 1];
-    }
-	
-	 function goToHome() {
-      window.location.href = "Vehicle_details.html"; // Change this to any page you want
-    }
-  </script>
+// Open link in new tab
+function openLink(page){ window.open(page,'_blank'); }
+function goToHome(){ window.location.href = "Vehicle_details.html"; }
+
+</script>
 </body>
 </html>
-
-
