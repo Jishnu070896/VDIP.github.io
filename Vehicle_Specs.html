@@ -140,10 +140,13 @@ function showComponents(sub){
   else if(sub==='Fuel') components = [
     {name:'Fuel Tank', desc:'Supplies fuel from tank to engine.', link:'https://inside-docupedia.bosch.com/confluence/spaces/FCW/pages/6115088119/MEDC17_DS_Vehicle#MEDC17_DS_Vehicle-FuelTank'},
 	  {name:'Low-Pressure Fuel Pump', desc:'Supplies fuel from tank to engine.', link:'https://inside-docupedia.bosch.com/confluence/spaces/FCW/pages/6115088119/MEDC17_DS_Vehicle#MEDC17_DS_Vehicle-FuelLiftPumporLow-PressureFuelPump'},
-	  {name:'Fuel Pump', desc:'Supplies fuel from tank to engine.', link:'fuel_pump_detail.html'},
-	  {name:'Fuel Pump', desc:'Supplies fuel from tank to engine.', link:'fuel_pump_detail.html'},
-    {name:'Injectors', desc:'Atomize fuel for combustion.', link:'fuel_injectors_detail.html'},
-    {name:'Fuel Rail', desc:'Distributes fuel to injectors.', link:'fuel_rail_detail.html'}
+	  {name:'Fuel Filter', desc:'Supplies fuel from tank to engine.', link:'https://inside-docupedia.bosch.com/confluence/spaces/FCW/pages/6115088119/MEDC17_DS_Vehicle#MEDC17_DS_Vehicle-FuelFilter'},
+	  {name:'Fuel-Water separator', desc:'Supplies fuel from tank to engine.', link:'https://inside-docupedia.bosch.com/confluence/spaces/FCW/pages/6115088119/MEDC17_DS_Vehicle#MEDC17_DS_Vehicle-Waterseparator+WaterinFuelSensor'},
+    {name:'High-Pressure Fuel Pump', desc:'Atomize fuel for combustion.', link:'https://inside-docupedia.bosch.com/confluence/spaces/FCW/pages/6115088119/MEDC17_DS_Vehicle#MEDC17_DS_Vehicle-HighPressureFuelPump'},
+    {name:'Common Rail', desc:'Distributes fuel to injectors.', link:'https://inside-docupedia.bosch.com/confluence/spaces/FCW/pages/6115088119/MEDC17_DS_Vehicle#MEDC17_DS_Vehicle-CommonRail'},
+	{name:'Fuel Injectors', desc:'Distributes fuel to injectors.', link:'https://inside-docupedia.bosch.com/confluence/spaces/FCW/pages/6115088119/MEDC17_DS_Vehicle#MEDC17_DS_Vehicle-Fuelinjectors'},
+	{name:'Fuel Retuen Lines', desc:'Distributes fuel to injectors.', link:'https://inside-docupedia.bosch.com/confluence/spaces/FCW/pages/6115088119/MEDC17_DS_Vehicle#MEDC17_DS_Vehicle-InjectorReturnLines'},
+	  {name:'Pressure Control Valve (PCV)', desc:'Distributes fuel to injectors.', link:'https://inside-docupedia.bosch.com/confluence/spaces/FCW/pages/6115088119/MEDC17_DS_Vehicle#MEDC17_DS_Vehicle-FuelPressureRegulatororPCV(PressureControlValve)'}
   ];
   else if(sub==='Exhaust') components = [
     {name:'DOC', desc:'Diesel Oxidation Catalyst reduces pollutants.', link:'exhaust_doc_detail.html'},
@@ -178,3 +181,4 @@ function goToHome(){ window.location.href = "Vehicle_details.html"; }
 </script>
 </body>
 </html>
+
