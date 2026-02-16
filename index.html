@@ -47,7 +47,8 @@
       bottom: 30px;
       width: 100%;
       display: flex;
-      justify-content: space-between;
+      justify-content: space-evenly; /* Equal spacing */
+      align-items: center;
       padding: 0 50px;
     }
 
@@ -62,13 +63,6 @@
       border-radius: 8px;
       text-shadow: 1px 1px 3px #000;
       transition: background 0.3s, transform 0.2s;
-    }
-
-    /* Center button placed manually */
-    .center {
-      position: absolute;
-      left: 45%;
-      transform: translateX(-1%);
     }
 
     /* Hover effect for buttons */
@@ -90,21 +84,14 @@
 
   <!-- Navigation buttons at the bottom -->
   <div class="footer">
-    <!-- Bottom-left: Booking -->
     <a href="https://bosch-my.sharepoint.com/:x:/p/jzo1kor/EXtfe93DGkdDmkDKmezNsCoBXJ9OocorLr8MT7zoFn-KFw?e=jBqCL3" target="_blank" class="nav-button">Vehicle Booking</a>
 
-    <!-- Bottom-center: Working -->
-    <a href="Vehicle_details.html" class="nav-button center">Vehicle Specifications</a>
+    <a href="https://bosch-my.sharepoint.com/:x:/r/personal/jzo1kor_bosch_com/Documents/OneNote%20Uploads/VDIP/Learning%20Plan%202026.xlsx?d=wbfa5623cc91f43c696f7c1f06f89a1a5&csf=1&web=1&e=tgJYdW" target="_blank" class="nav-button">Learning Plan</a>
 
-    <!-- Bottom-right: Setup -->
+    <a href="Vehicle_details.html" class="nav-button">Vehicle Specifications</a>
+
     <a href="Vehicle_Setup.html" class="nav-button">Vehicle Setup</a>
   </div>
 
 </body>
 </html>
-
-
-
-
-
-
